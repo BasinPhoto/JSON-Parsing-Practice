@@ -11,6 +11,19 @@ struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .onAppear {
+                APImanager.shared.getUsers { users in
+                    print(users.count)
+                }
+                
+                APImanager.shared.getPosts { posts in
+                    print(posts.count)
+                }
+                
+                APImanager.shared.getAlbums { albums in
+                    print(albums.count)
+                }
+            }
     }
 }
 
